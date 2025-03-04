@@ -27,7 +27,7 @@ public abstract class Conta implements IConta{
 
     
     /**
-     * Serve para sacar o valor da conta. O valor vai ser subtraído da instancia 
+     * Serve para sacar o valor da conta. O valor vai ser subtraído da instância 
      *  
      * @param valor
      */
@@ -39,9 +39,9 @@ public abstract class Conta implements IConta{
 
     
     /** 
+     *  Serve para depositar o valor na conta. O valor vai ser adicionado na instância
      * @param valor
      */
-    // Método depositar
     @Override
     public void depositar(double valor){
         this.saldo += valor;
@@ -50,26 +50,49 @@ public abstract class Conta implements IConta{
     
     
     /** 
-     * @param valor
-     * @param contaDestino
+     * Serve para transferir o valor para uma outra conta. Primeiro o valor é sacado (subtraído),
+     * para que possa ser depositado em outra conta
+     * 
+     * @param valor O valor que vai ser transferido.
+     * @param contaDestino A conta que vai receber o dinheiro que vai ser transferido.
      */
     @Override
     public void transferir(double valor, Conta contaDestino){
-
+        this.sacar(valor);
+        contaDestino.depositar(valor);
     }
 
+    protected void imprimirInformacoes() {
+        System.out.println(String.format("Âgencia: %d", this.agencia));
+        System.out.println(String.format("Número: %d", this.numero));
+        System.out.println(String.format("Saldo: %.2f", this.saldo));
+    }
+    
     
     /** 
-     * @return int
+     * Serve para obter a agência da conta
+     * 
+     * @return int Âgencia
      */
     public int getAgencia(){
         return this.agencia;
     }
+    
+    /**
+     * Serve para obter o número da conta
+     * 
+     * @return int Numero
+     */
 
     public int getNumero(){
         return this.numero;
     }
 
+    /**
+     * Serve para obter o saldo que tem na conta
+     * 
+     * @return Saldo
+     */
     public double getSaldo(){
         return this.saldo;
     }
