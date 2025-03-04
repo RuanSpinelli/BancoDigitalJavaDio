@@ -5,4 +5,11 @@ public class ContaPoupanca extends Conta{
         System.out.println("=== Extrato conta corrente ===");
         super.imprimirInformacoes();
     }
+
+
+    public ContaPoupanca(Cliente cliente) {
+        super(cliente);
+    }
+
+
 }

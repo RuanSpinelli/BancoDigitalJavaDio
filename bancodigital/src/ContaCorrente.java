@@ -7,4 +7,10 @@ public class ContaCorrente extends Conta{
         super.imprimirInformacoes();
 
     }
+
+
+
+    public ContaCorrente(Cliente cliente) {
+        super(cliente);
+    }
 }

@@ -1,14 +1,28 @@
 public class main {
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         
-        Conta cc = new ContaCorrente();
+        Banco bra = new Banco();
+        bra.setNome("brazil bank");
 
-        Conta cp = new ContaPoupanca();
 
-        cc.imprimirExtrato();
-        cp.imprimirExtrato();
 
+
+
+        Cliente p1 = new Cliente("Roberto");
+        Cliente p2 = new Cliente("Fernando");
 
         
+
+        Conta cp = new ContaPoupanca(p1);
+        Conta cc = new ContaCorrente(p2);
+
+
+        bra.addConta(cc);
+        bra.addConta(cp);
+
+    
+        System.out.println(bra.getContas());
+
+
     }
 }
