@@ -21,7 +21,7 @@ public class main {
         bra.addConta(cp);
 
     
-        System.out.println(bra.getContas());
+        bra.imprimirContas();
 
 
     }

@@ -30,4 +30,11 @@ public class Banco {
     public void addConta(Conta conta) {
         this.contas.add(conta);
     }
+
+    public void imprimirContas(){
+        for (Conta conta: contas){
+            conta.imprimirInformacoes();
+        }
+    }
+
 }
